@@ -3,8 +3,7 @@
 
 package imageproxy
 
-// The Cache interface defines a cache for storing arbitrary data.  The
-// interface is designed to align with httpcache.Cache.
+// Cache 接口定义了存储任意数据的缓存相关的结构，接口的结构和 httpcache.Cache 类似
 type Cache interface {
 	// Get retrieves the cached data for the provided key.
 	Get(key string) (data []byte, ok bool)
@@ -16,7 +15,7 @@ type Cache interface {
 	Delete(key string)
 }
 
-// NopCache provides a no-op cache implementation that doesn't actually cache anything.
+// NopCache 是 Cache 的空对象模式
 var NopCache = new(nopCache)
 
 type nopCache struct{}

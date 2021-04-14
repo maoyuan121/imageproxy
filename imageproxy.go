@@ -31,17 +31,15 @@ import (
 	tphttp "willnorris.com/go/imageproxy/third_party/http"
 )
 
-// Proxy serves image requests.
+// Proxu 提供图片请求的服务
 type Proxy struct {
-	Client *http.Client // client used to fetch remote URLs
-	Cache  Cache        // cache used to cache responses
+	Client *http.Client // client 用来请求远程 url
+	Cache  Cache        // cache 用来缓存响应
 
-	// AllowHosts specifies a list of remote hosts that images can be
-	// proxied from.  An empty list means all hosts are allowed.
+	// AllowHosts 指定可以代理哪些网站的图片。如果为空标识可以代理所有网站的图片
 	AllowHosts []string
 
-	// DenyHosts specifies a list of remote hosts that images cannot be
-	// proxied from.
+	// DenyHosts 指定禁止代理哪些网站的图片
 	DenyHosts []string
 
 	// Referrers, when given, requires that requests to the image
@@ -53,12 +51,10 @@ type Proxy struct {
 	// is included in remote requests.
 	IncludeReferer bool
 
-	// FollowRedirects controls whether imageproxy will follow redirects or not.
+	// FollowRedirects 控制 imageproxy 是否遵循重定向。
 	FollowRedirects bool
 
-	// DefaultBaseURL is the URL that relative remote URLs are resolved in
-	// reference to.  If nil, all remote URLs specified in requests must be
-	// absolute.
+	// DefaultBaseURL 是解析相对远程 URL 时引用的URL。如果为nil，则请求中指定的所有远程 url 都必须是绝对 url。
 	DefaultBaseURL *url.URL
 
 	// The Logger used by the image proxy

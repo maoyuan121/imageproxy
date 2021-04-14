@@ -5,10 +5,10 @@
 [![Test Coverage](https://codecov.io/gh/willnorris/imageproxy/branch/main/graph/badge.svg)](https://codecov.io/gh/willnorris/imageproxy)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2611/badge)](https://bestpractices.coreinfrastructure.org/projects/2611)
 
-imageproxy is a caching image proxy server written in go.  It features:
+imageproxy 是用 go 写的缓存图片代理服务。有下面的功能：
 
- - basic image adjustments like resizing, cropping, and rotation
- - access control using allowed hosts list or request signing (HMAC-SHA256)
+ - 基础的图片调整，例如 resizing, cropping, 和 rotation
+ - 使用 host 白名单和请求签名（HMAC-SHA256）来控制访问
  - support for jpeg, png, webp (decode only), tiff, and gif image formats
    (including animated gifs)
  - caching in-memory, on disk, or with Amazon S3, Google Cloud Storage, Azure
