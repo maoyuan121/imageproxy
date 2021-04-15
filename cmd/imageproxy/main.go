@@ -119,8 +119,8 @@ func (skl *signatureKeyList) Set(value string) error {
 	return nil
 }
 
-// tieredCache allows specifying multiple caches via flags, which will create
-// tiered caches using the twotier package.
+// tieredCache 通过 flag 指定多级缓存
+// tiered caches 使用 twotier package
 type tieredCache struct {
 	imageproxy.Cache
 }
@@ -145,7 +145,7 @@ func (tc *tieredCache) Set(value string) error {
 	return nil
 }
 
-// parseCache parses c returns the specified Cache implementation.
+// 通过解析 c 返回指定的缓存能实现
 func parseCache(c string) (imageproxy.Cache, error) {
 	if c == "" {
 		return nil, nil
@@ -182,8 +182,8 @@ func parseCache(c string) (imageproxy.Cache, error) {
 	}
 }
 
-// lruCache creates an LRU Cache with the specified options of the form
-// "maxSize:maxAge".  maxSize is specified in megabytes, maxAge is a duration.
+// 创建一个 LRU Cache
+// param: options 格式为 maxSize:maxAge maxSize 是指内存的兆字节，maxAge 是指过期时间
 func lruCache(options string) (*lrucache.LruCache, error) {
 	parts := strings.SplitN(options, ":", 2)
 	size, err := strconv.ParseInt(parts[0], 10, 64)
@@ -202,6 +202,7 @@ func lruCache(options string) (*lrucache.LruCache, error) {
 	return lrucache.New(size*1e6, int64(age.Seconds())), nil
 }
 
+// 文件系统缓存
 func diskCache(path string) *diskcache.Cache {
 	d := diskv.New(diskv.Options{
 		BasePath: path,

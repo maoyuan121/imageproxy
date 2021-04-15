@@ -9,11 +9,11 @@ imageproxy 是用 go 写的缓存图片代理服务。有下面的功能：
 
  - 基础的图片调整，例如 resizing, cropping, 和 rotation
  - 使用 host 白名单和请求签名（HMAC-SHA256）来控制访问
- - support for jpeg, png, webp (decode only), tiff, and gif image formats
-   (including animated gifs)
- - caching in-memory, on disk, or with Amazon S3, Google Cloud Storage, Azure
+ - 支持 jpeg, png, webp (decode only), tiff, 和 gif image 格式
+   （包括动图）
+ - 缓存 in-memory, on disk, or with Amazon S3, Google Cloud Storage, Azure
    Storage, or Redis
- - easy deployment, since it's pure go
+ - 容易部署
 
 Personally, I use it primarily to dynamically resize images hosted on my own
 site (read more in [this post][]).  But you can also enable request signing and
